@@ -37,6 +37,15 @@ const IndexScreen = ({ navigation }) => {
     );
 };
 
+// HEADER
+IndexScreen.navigationOptions = ({ navigation }) => {
+    return {
+        headerRight: <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+                <Feather style={styles.headerIcon} name="plus-circle" />
+            </TouchableOpacity>
+    };
+};
+
 // STYLESHEET
 const styles = StyleSheet.create({
     row: {
@@ -52,6 +61,10 @@ const styles = StyleSheet.create({
     },
     icon: {
         fontSize: 24
+    },
+    headerIcon: {
+        fontSize: 24,
+        marginRight: 10
     }
 });
 

@@ -8,10 +8,12 @@ import { Provider as BlogProvider } from './src/context/BlogContext';
 
 // COMPONENTS
 import IndexScreen from './src/screens/IndexScreen';
+import ShowScreen from './src/screens/ShowScreen';
 
 const navigator = createStackNavigator(
   {
-    Index: IndexScreen
+    Index: IndexScreen,
+    Show: ShowScreen
   },
   {
     initialRouteName: 'Index',

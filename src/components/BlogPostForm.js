@@ -2,23 +2,23 @@
 import React, { useState, useContext } from 'react';
 import { Button, StyleSheet, Text, TextInput } from 'react-native';
 
-const BlogPostForm = ({ onSubmit }) => {
-    const [ title, setTitle ] = useState('');
-    const [ content, setContent ] = useState('');
+const BlogPostForm = ({ onSubmit, blogPost }) => {
+    const [ title, setTitle ] = useState(blogPost.title);
+    const [ content, setContent ] = useState(blogPost.content);
 
     return (
         <>
         <Text style={styles.label}>Title:</Text>
         <TextInput 
-            style={styles.input} 
-            value={title} 
-            onChangeText={newTitle => setTitle(newTitle)} 
+            style={styles.input}
+            value={title}
+            onChangeText={newTitle => setTitle(newTitle)}
         />
         <Text style={styles.label}>Content:</Text>
         <TextInput 
-            style={styles.input} 
-            value={content} 
-            onChangeText={newContent => setContent(newContent)} 
+            style={styles.input}
+            value={content}
+            onChangeText={newContent => setContent(newContent)}
         />
         <Button 
             title='Save' 
@@ -26,6 +26,14 @@ const BlogPostForm = ({ onSubmit }) => {
         />
         </>
     );
+};
+
+// DEFAULT PROPS
+BlogPostForm.defaultProps = {
+    blogPost: {
+        title: '',
+        content: ''
+    }
 };
 
 // STYLESHEET

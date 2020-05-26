@@ -1,5 +1,5 @@
 // REACT
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 // CONTEXT
@@ -17,7 +17,7 @@ const EditScreen = ({ navigation }) => {
         <View style={styles.container}>
             <BlogPostForm
                 blogPost={{ title: blogPost.title, content: blogPost.content }}
-                onSubmit={(title, content, callback) => 
+                onSubmit={(title, content) => 
                     editBlogPost(blogPost.id, title, content, () => navigation.pop())
                 }
             />

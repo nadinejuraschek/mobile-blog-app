@@ -1,6 +1,6 @@
 // REACT
 import React, { useContext } from 'react';
-import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 // CONTEXT
 import { Context as BlogContext } from '../context/BlogContext';
@@ -13,10 +13,9 @@ const IndexScreen = ({ navigation }) => {
   
     return (
       <View>
-        <Button title="Add Post" onPress={addBlogPost} />
         <FlatList
           data={state}
-          keyExtractor={blogPost => blogPost.title}
+          keyExtractor={blogPost => blogPost.id}
           renderItem={({ item }) => {
             return (
               <TouchableOpacity 
@@ -38,9 +37,10 @@ const IndexScreen = ({ navigation }) => {
 // HEADER
 IndexScreen.navigationOptions = ({ navigation }) => {
     return {
-        headerRight: <TouchableOpacity onPress={() => navigation.navigate('Create')}>
-                <Feather style={styles.headerIcon} name="plus-circle" />
-            </TouchableOpacity>
+        headerRight: 
+          <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+            <Feather style={styles.headerIcon} name="plus-circle" />
+          </TouchableOpacity>
     };
 };
 

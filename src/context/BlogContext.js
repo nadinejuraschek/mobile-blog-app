@@ -20,8 +20,9 @@ const blogReducer = (state, action) => {
 };
 
 const addBlogPost = dispatch => {
-  return ( title, content ) => {
+  return ( title, content, callback ) => {
     dispatch({ type: 'add_blogpost', payload: { title, content } });
+    callback();
   };
 };
 const deleteBlogPost = dispatch => {
@@ -33,5 +34,9 @@ const deleteBlogPost = dispatch => {
 export const { Context, Provider } = createDataContext(
   blogReducer,
   { addBlogPost, deleteBlogPost },
-  []
+  [{ 
+    title: 'Test Post', 
+    content: 
+    'Sartorial hella tumblr meggings twee. 8-bit knausgaard four loko tumeric coloring book. Chicharrones yuccie tacos 8-bit. Jean shorts flannel intelligentsia gastropub cloud bread church-key. Knausgaard semiotics swag fashion axe, scenester tofu selfies hexagon raclette microdosing chicharrones. Palo santo venmo tumeric kickstarter, gluten-free tilde fam street art VHS normcore polaroid chambray.' 
+  }]
 );
